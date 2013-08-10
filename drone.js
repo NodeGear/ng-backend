@@ -3,6 +3,7 @@ var fs = require('fs')
 	, repositories = require('./repositories')
 	, exec = require('child_process').exec
 	, npm = require('npm')
+	, forever = require('forever-monitor')
 
 function Drone (opts, cb) {
 	this.repo = null;
@@ -12,6 +13,7 @@ function Drone (opts, cb) {
 	this.cb = cb;
 	this.self = this;
 	this.repository;
+	this.spawn = null
 	
 	this.init()
 };
@@ -31,6 +33,41 @@ Drone.prototype.validatePackage = function () {
 	this.location += this.pkg.name;
 	
 	return true;
+}
+
+Drone.prototype.start = function (cb) {
+	var self = this;
+	console.log(self.pkg)
+	var proc = new (forever.Monitor)(self.pkg.start, {
+		max: 3,
+		minUptime: 2000,
+		sourceDir: self.location,
+		env: { NODE_ENV: 'production', PORT: 3001 },
+		cwd: self.location,
+		killTree: true
+		// TODO logs
+	});
+	
+	proc.on('error', function(err) {
+		console.log(err);
+	});
+	proc.on('start', function(proc, data) {
+		console.log("Started")
+	});
+	proc.on('stop', function(proc) {
+		console.log("Process stopped")
+	});
+	proc.on('restart', function(proc) {
+		console.log("Restarted")
+	});
+	proc.on('stdout', function(data) {
+		console.log("OUT: "+data)
+	});
+	proc.on('stderr', function(data) {
+		console.log("ERR: "+data);
+	})
+	
+	proc.start();
 }
 
 Drone.prototype.install = function (cb) {

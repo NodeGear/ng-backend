@@ -1,4 +1,4 @@
-s = require('express')
+express = require('express')
 	, http = require('http')
 	, path = require('path');
 
@@ -20,7 +20,7 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-app.get('/', function() {
+app.get('/', function(req, res) {
   res.send("Hello there!");
 });
 
