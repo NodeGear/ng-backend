@@ -1,15 +1,16 @@
 {
-  "name": "application-name",
+  "name": "nodecloud",
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node app.js"
+    "start": "node lib/cloud.js"
   },
   "dependencies": {
     "express": "3.2.4",
     "jade": "*",
 	"forever-monitor": "*",
 	"async":"*",
-	"http-proxy":"*"
+	"http-proxy":"*",
+	"mongoose": "*"
   }
 }
