@@ -1,11 +1,15 @@
 {
-"name": "Test-application",
-"version": "0.2.1",
-"start": "test.js",
-"dependencies": {
-  "express":"*",
-  "npm": "*",
-  "async":"*",
-  "forever-monitor": "*"
-}
+	"name": "Test-application",
+	"version": "0.2.1",
+	"start": "test.js",
+	"subdomain": "testapp",
+	"domains": [
+		"testapp.matej.me"
+	],
+	"dependencies": {
+	  "express":"*",
+	  "npm": "*",
+	  "async":"*",
+	  "forever-monitor": "*"
+	}
 }
