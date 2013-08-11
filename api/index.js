@@ -13,9 +13,9 @@ function listDrones (req, res) {
 function createDrone(req, res) {
 	if (req.files.drone) {
 		console.log(req.files.drone);
-		var name = Date.now();
-		var dir = '/tmp/nodecloud/';
-		var target = '/tmp/nodecloud/'+name;
+		var name = req.files.drone.name;
+		var dir = '/tmp/nodecloud/'+Date.now()+'/';
+		var target = dir+name;
 		
 		exec('mkdir -p '+dir+' && mv '+req.files.drone.path+' '+target+' && cd '+dir+' && tar xzf '+name+' && rm '+target, function(err) {
 			if (err) throw err;

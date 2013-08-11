@@ -77,8 +77,7 @@ Drone.prototype.start = function (cb) {
 Drone.prototype.install = function(cb) {
 	var self = this;
 	
-	console.log('cp -r ' + self.opts.repository.path + ' ' + self.location)
-	exec('mkdir -p '+self.location+' && cp -r ' + self.opts.repository.path + ' ' + self.location, function(err) {
+	exec('rm -rf '+self.location+'; cp -r ' + self.opts.repository.path + ' ' + self.location, function(err) {
 		if (err) throw err;
 		
 		cb(err)
