@@ -9,7 +9,7 @@ exports.init = function (drone) {
 		console.log(drone.pkg)
 		if (drone.validatePackage()) {
 			// Copy app
-			drone.copy(function() {
+			drone.install(function() {
 				console.log("Copied")
 				drone.cb()
 			});

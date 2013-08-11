@@ -1,0 +1,7 @@
+{
+	"name":"nodecloud-client",
+	"dependencies": {
+		"optimist":"*",
+		"request": "*"
+	}
+}
