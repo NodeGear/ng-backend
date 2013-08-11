@@ -9,6 +9,7 @@
     "express": "3.2.4",
     "jade": "*",
 	"forever-monitor": "*",
-	"async":"*"
+	"async":"*",
+	"http-proxy":"*"
   }
 }
