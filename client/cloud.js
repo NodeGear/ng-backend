@@ -8,7 +8,7 @@ console.log(tmp)
 exec('cd '+process.cwd()+' && tar czf '+tmp+' .', function(err) {
 	if (err) throw err;
 	
-	var r = request.post('http://localhost:3000/drone/create', function(err, res, body) {
+	var r = request.post('http://nodecloud.matej.me/drone/create', function(err, res, body) {
 		console.log(body)
 		
 		exec('rm '+tmp, function(err) {
@@ -21,4 +21,4 @@ exec('cd '+process.cwd()+' && tar czf '+tmp+' .', function(err) {
 	
 	var form = r.form();
 	form.append('drone', fs.createReadStream(tmp));
-})
+});	
