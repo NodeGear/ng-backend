@@ -1,33 +1,25 @@
-var optimist = require('optimist')
-	, exec = require('child_process').exec
+var exec = require('child_process').exec
 	, request = require('request')
 	, fs = require('fs')
 	, colors = require('colors')
-	, Auth = require('./auth')
-	, Deploy = require('./deploy')
+	, auth = require('./auth')
+	, deploy = require('./deploy').deploy
+	, flatiron = require('flatiron')
+	, app = flatiron.app
 
-var argv = optimist
-	.usage('Use nodecloud -deploy', {
-		'deploy': {
-			description: 'Deploy current directory to nodecloud',
-			alias: 'd'
-		},
-		'register': {
-			description: 'Register with nodecloud'
-		},
-		'login': {
-			description: 'Login with nodecloud'
-		},
-		'help': {
-			alias: 'h',
-			description: 'Show help'
-		}
-	})
-	.argv
+app.use(flatiron.plugins.cli, {
+	dir: __dirname,
+	usage: [
+		'NodeCloud login/register/deploy/list'
+	]
+})
 
-if (argv.h) {
-	optimist.showHelp()
-}
+auth.setup(app);
 
-var deploy = new Deploy(argv);
-var auth = new Auth(argv);
+app.cmd('deploy', function() {
+	deploy();
+});
+
+console.log("Welcome to "+"NodeCloud".grey)
+
+app.start()

@@ -2,6 +2,9 @@
 	"name":"nodecloud-client",
 	"dependencies": {
 		"optimist":"*",
-		"request": "*"
+		"request": "*",
+		"prompt": "*",
+		"flatiron":"*",
+		"restler": "*"
 	}
 }
