@@ -11,6 +11,7 @@
 	"forever-monitor": "*",
 	"async":"*",
 	"http-proxy":"*",
-	"mongoose": "*"
+	"mongoose": "*",
+	"colors": "*"
   }
 }
