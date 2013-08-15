@@ -6,6 +6,8 @@ var exec = require('child_process').exec
 	, deploy = require('./deploy').deploy
 	, flatiron = require('flatiron')
 	, app = flatiron.app
+	, api = require('./api')
+
 
 app.use(flatiron.plugins.cli, {
 	dir: __dirname,
@@ -21,5 +23,6 @@ app.cmd('deploy', function() {
 });
 
 console.log("Welcome to "+"NodeCloud".grey)
+console.log("Using "+api.api.grey);
 
 app.start()

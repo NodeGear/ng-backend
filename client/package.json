@@ -1,5 +1,6 @@
 {
 	"name":"nodecloud-client",
+	"version": "0.0.2",
 	"dependencies": {
 		"optimist":"*",
 		"request": "*",

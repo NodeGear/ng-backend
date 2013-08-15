@@ -1,4 +1,4 @@
-var location = "/Users/matejkramny/.nodecloud"
+var location = process.env.HOME+"/.nodecloud"
 	, fs = require('fs')
 
 exports.getToken = function (cb) {
@@ -8,7 +8,6 @@ exports.getToken = function (cb) {
 }
 
 exports.writeToken = function (token) {
-	console.log("Writing" +token)
 	fs.writeFile(location, token, function(err) {
 		if (err) throw err;
 	})

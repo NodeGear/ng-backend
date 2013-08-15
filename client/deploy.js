@@ -8,6 +8,8 @@ var token = require('./token')
 var exec = require('child_process').exec
 var request = require('request')
 var fs = require('fs')
+var cloud = require('./api')
+var prompt = require('./prompt')
 
 exports.deploy = function(argv) {
 	token.getToken(function(token) {
@@ -15,19 +17,47 @@ exports.deploy = function(argv) {
 			// Login
 			console.log("Please authenticate".red.underline);
 		} else {
-			deploy(token)
+			preDeploy(token)
 		}
 	})
 }
 
-function deploy(token) {
+function getPackage (cb) {
+	fs.readFile(process.cwd()+"/package.json", function(err, package) {
+		if (err) throw err;
+		
+		cb(package)
+	})
+}
+
+function preDeploy(token) {
+	console.log("PreDeploying".magenta);
+	
+	getPackage(function(pkg) {
+		if (pkg == null) {
+			console.log("No package.json".red);
+			return;
+		}
+		
+		var package = JSON.parse(pkg);
+		
+		if (package.location == null) {
+			// Select a location
+			prompt.getLocation(function(location) {
+				deploy(token, pkg, location);
+			})
+		}
+	});
+}
+
+function deploy(token, pkg, location) {
 	console.log("Deploying".magenta);
 	
 	var tmp = '/tmp/'+Date.now()+'.tar.gz'
 	exec('cd '+process.cwd()+' && tar czf '+tmp+' .', function(err) {
 		if (err) throw err;
 		
-		var r = request.post('http://nodecloud.matej.me/drone/create', function(err, res, body) {
+		var r = request.post(cloud.api+'drone/create', function(err, res, body) {
 			console.log(body)
 			
 			exec('rm '+tmp, function(err) {
@@ -39,7 +69,9 @@ function deploy(token) {
 		});
 		
 		var form = r.form();
+		
 		form.append('drone', fs.createReadStream(tmp));
 		form.append('token', token);
+		form.append('package', pkg)
 	});
 }
