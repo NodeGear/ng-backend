@@ -7,8 +7,9 @@ if (process.env.SANDBOX) {
 } else {
 	exports.api = "http://nodecloud.matej.me/";
 	exports.hosts = {
-		us: "http://us.nodecloud.matej.me/",
-		fr: "http://fr.nodecloud.matej.me/"
+		us: "http://us1.nodecloud.matej.me/",
+		fr: "http://fr1.nodecloud.matej.me/",
+		ams: "http://ams1.nodecloud.matej.me/"
 	}
 }
 
