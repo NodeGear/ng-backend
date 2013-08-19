@@ -57,25 +57,23 @@ function deploy(token, pkg, location) {
 	var tmp = '/tmp/'+Date.now()+'.tar.gz'
 	exec('cd '+process.cwd()+' && tar czf '+tmp+' .', function(err) {
 		if (err) throw err;
-		
-		fs.readFile(tmp, function(err, data) {
-			if (err) throw err;
-			
-			console.log(data.toString())
-			
-			cloud.socket.emit('create', {
-				drone: data.toString(),
-				token: token.toString(),
-				package: pkg.toString()
-			});
-			
+		console.log(cloud.api)
+		var r = request.post(cloud.api+'drone/create', function(err, res, body) {
+			console.log(body)
+
 			exec('rm '+tmp, function(err) {
 				if (err){
 					console.log("Fail removing temp file");
 					throw err;
 				}
 			})
-		})
+		});
+
+		var form = r.form();
+
+		form.append('drone', fs.createReadStream(tmp));
+		form.append('token', token);
+		form.append('package', pkg)
 	});
 }
 
