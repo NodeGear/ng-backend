@@ -7,7 +7,7 @@ var exec = require('child_process').exec
 	, flatiron = require('flatiron')
 	, app = flatiron.app
 	, api = require('./api')
-
+	, io = require('socket.io-client')
 
 app.use(flatiron.plugins.cli, {
 	dir: __dirname,

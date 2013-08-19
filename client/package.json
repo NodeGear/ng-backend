@@ -6,6 +6,7 @@
 		"request": "*",
 		"prompt": "*",
 		"flatiron":"*",
-		"restler": "*"
+		"restler": "*",
+		"socket.io-client": "*"
 	}
 }

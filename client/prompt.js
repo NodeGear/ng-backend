@@ -51,7 +51,7 @@ exports.getLocation = function (cb) {
 	}, function(err, vals) {
 		if (err) throw err;
 		
-		cb(vals.location);
+		cb(api.hosts[vals.location]);
 	})
 }
 

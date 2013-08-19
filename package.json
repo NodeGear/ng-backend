@@ -12,6 +12,9 @@
 	"async":"*",
 	"http-proxy":"*",
 	"mongoose": "*",
-	"colors": "*"
+	"colors": "*",
+	"socket.io": "*",
+	"fs.extra": "*",
+	"tar.gz": "*"
   }
 }

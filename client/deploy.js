@@ -7,6 +7,7 @@
 var token = require('./token')
 var exec = require('child_process').exec
 var request = require('request')
+var rest = require('restler')
 var fs = require('fs')
 var cloud = require('./api')
 var prompt = require('./prompt')
@@ -57,8 +58,16 @@ function deploy(token, pkg, location) {
 	exec('cd '+process.cwd()+' && tar czf '+tmp+' .', function(err) {
 		if (err) throw err;
 		
-		var r = request.post(cloud.api+'drone/create', function(err, res, body) {
-			console.log(body)
+		fs.readFile(tmp, function(err, data) {
+			if (err) throw err;
+			
+			console.log(data.toString())
+			
+			cloud.socket.emit('create', {
+				drone: data.toString(),
+				token: token.toString(),
+				package: pkg.toString()
+			});
 			
 			exec('rm '+tmp, function(err) {
 				if (err){
@@ -66,12 +75,10 @@ function deploy(token, pkg, location) {
 					throw err;
 				}
 			})
-		});
-		
-		var form = r.form();
-		
-		form.append('drone', fs.createReadStream(tmp));
-		form.append('token', token);
-		form.append('package', pkg)
+		})
 	});
 }
+
+cloud.socket.on('drone', function(data) {
+	console.log(data)
+})

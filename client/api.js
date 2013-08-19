@@ -1,17 +1,20 @@
 var restler = require('restler')
+	, io = require('socket.io-client')
+
 if (process.env.SANDBOX) {
 	exports.api = "http://127.0.0.1:3000/";
 	exports.hosts = {
 		local: "http://localhost:3000/"
 	}
 } else {
-	exports.api = "http://nodecloud.matej.me/";
+	exports.api = "http://us.nodecloud.matej.me/";
 	exports.hosts = {
-		us: "http://us1.nodecloud.matej.me/",
-		fr: "http://fr1.nodecloud.matej.me/",
-		ams: "http://ams1.nodecloud.matej.me/"
+		us: "http://us.nodecloud.matej.me/",
+		fr: "http://fr.nodecloud.matej.me/"
 	}
 }
+
+exports.socket = socket = io.connect(exports.api)
 
 exports.doLogin = function (data, callback) {
 	restler.post(exports.api+'login', {
