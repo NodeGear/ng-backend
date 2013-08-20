@@ -8,8 +8,5 @@
 	],
 	"dependencies": {
 	  "express":"*",
-	  "npm": "*",
-	  "async":"*",
-	  "forever-monitor": "*"
 	}
 }

@@ -1,5 +1,6 @@
 var restler = require('restler')
 	, io = require('socket.io-client')
+	, token = require('./token')
 
 if (process.env.SANDBOX) {
 	exports.api = "http://127.0.0.1:3000/";
@@ -15,6 +16,24 @@ if (process.env.SANDBOX) {
 }
 
 exports.socket = socket = io.connect(exports.api)
+
+token.getToken(function(token) {
+	if (!token) {
+		return;
+	}
+	
+	socket.emit('auth', {
+		token: token.toString()
+	})
+})
+
+socket.on('auth', function(data) {
+	// data.success | BOOL
+})
+
+socket.on('dronedata', function(data) {
+	console.log(data)
+})
 
 exports.doLogin = function (data, callback) {
 	restler.post(exports.api+'login', {

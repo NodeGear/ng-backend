@@ -16,6 +16,8 @@ app.use(flatiron.plugins.cli, {
 	]
 })
 
+// TODO read the package.json, validate. if wrong, stop. store in exports.pkg
+
 auth.setup(app);
 
 app.cmd('deploy', function() {
