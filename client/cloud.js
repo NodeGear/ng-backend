@@ -4,6 +4,7 @@ var exec = require('child_process').exec
 	, colors = require('colors')
 	, auth = require('./auth')
 	, deploy = require('./deploy').deploy
+	, drone = require('./drone')
 	, flatiron = require('flatiron')
 	, app = flatiron.app
 	, api = require('./api')
@@ -23,6 +24,19 @@ auth.setup(app);
 app.cmd('deploy', function() {
 	deploy();
 });
+
+app.cmd('start', function() {
+	drone.start()
+})
+app.cmd('stop', function() {
+	drone.stop()
+})
+app.cmd('restart', function() {
+	drone.restart()
+})
+app.cmd('log', function() {
+	
+})
 
 console.log("Welcome to "+"NodeCloud".grey)
 console.log("Using "+api.api.grey);

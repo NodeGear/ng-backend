@@ -23,37 +23,46 @@ exports.deploy = function(argv) {
 	})
 }
 
-function getPackage (cb) {
-	fs.readFile(process.cwd()+"/package.json", function(err, package) {
+exports.getPackage = getPackage = function (cb) {
+	fs.readFile(process.cwd()+"/package.json", function(err, pkg) {
 		if (err) throw err;
 		
-		cb(package)
+		if (pkg == null) {
+			console.log("No package.json".red);
+			return;
+		}
+		
+		var package;
+		try {
+			package = JSON.parse(pkg);
+		} catch (ex) {
+			console.log("Bad package.json".bold.red)
+			process.exit(1)
+		}
+		
+		if (package.location == null) {
+			// Select a location
+			prompt.getLocation(function(location) {
+				cb(package, location);
+			})
+			return;
+		}
+		cb(package, location)
 	})
 }
 
 function preDeploy(token) {
 	console.log("PreDeploying".magenta);
 	
-	getPackage(function(pkg) {
-		if (pkg == null) {
-			console.log("No package.json".red);
-			return;
-		}
-		
-		var package = JSON.parse(pkg);
-		
-		if (package.location == null) {
-			// Select a location
-			prompt.getLocation(function(location) {
-				deploy(token, pkg, location);
-			})
-		}
+	getPackage(function(pkg, location) {
+		deploy(token, pkg, location)
 	});
 }
 
 function deploy(token, pkg, location) {
 	console.log("Deploying".magenta);
 	
+	var pkg = JSON.stringify(pkg)
 	var tmp = '/tmp/'+Date.now()+'.tar.gz'
 	exec('cd '+process.cwd()+' && tar czf '+tmp+' .', function(err) {
 		if (err) throw err;

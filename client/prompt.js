@@ -14,7 +14,14 @@ exports.getLogin = function (cb) {
 				hidden: true
 			}
 		}
-	}, cb)
+	}, function(err, data) {
+		if (err) {
+			console.log()
+			process.exit(1)
+		}
+		
+		cb(null, data)
+	})
 }
 
 exports.getLocation = function (cb) {
@@ -49,7 +56,10 @@ exports.getLocation = function (cb) {
 			}
 		}
 	}, function(err, vals) {
-		if (err) throw err;
+		if (err) {
+		   	console.log()
+			process.exit(1)
+		}
 		
 		cb(api.hosts[vals.location]);
 	})
@@ -77,5 +87,12 @@ exports.getRegistration = function (cb) {
 				hidden: true
 			}
 		}
-	}, cb)
+	}, function(err, data) {
+		if (err) {
+			console.log();
+			process.exit(1)
+		}
+		
+		cb(null, data)
+	})
 }

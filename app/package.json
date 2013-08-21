@@ -7,6 +7,6 @@
 		"testapp.matej.me"
 	],
 	"dependencies": {
-	  "express":"*",
+	  "express":"*"
 	}
 }
