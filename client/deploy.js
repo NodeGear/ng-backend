@@ -46,8 +46,9 @@ exports.getPackage = getPackage = function (cb) {
 				cb(package, location);
 			})
 			return;
+		} else {
+			cb(package, location)
 		}
-		cb(package, location)
 	})
 }
 
@@ -66,8 +67,9 @@ function deploy(token, pkg, location) {
 	var tmp = '/tmp/'+Date.now()+'.tar.gz'
 	exec('cd '+process.cwd()+' && tar czf '+tmp+' .', function(err) {
 		if (err) throw err;
-		console.log(cloud.api)
-		var r = request.post(cloud.api+'drone/create', function(err, res, body) {
+		
+		console.log("Deploying to "+location)
+		var r = request.post(location+'drone/create', function(err, res, body) {
 			console.log(body)
 
 			exec('rm '+tmp, function(err) {
@@ -83,6 +85,10 @@ function deploy(token, pkg, location) {
 		form.append('drone', fs.createReadStream(tmp));
 		form.append('token', token);
 		form.append('package', pkg)
+		
+		form.getLength(function(err, len) {
+		    r.setHeader('Content-Length', len);
+		});
 	});
 }
 

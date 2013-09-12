@@ -8,7 +8,7 @@ if (process.env.SANDBOX) {
 		local: "http://localhost:3000/"
 	}
 } else {
-	exports.api = "http://us.nodecloud.matej.me/";
+	exports.api = "http://api.nodecloud.matej.me/";
 	exports.hosts = {
 		us: "http://us.nodecloud.matej.me/",
 		fr: "http://fr.nodecloud.matej.me/"

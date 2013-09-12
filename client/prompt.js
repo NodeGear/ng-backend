@@ -57,7 +57,7 @@ exports.getLocation = function (cb) {
 		}
 	}, function(err, vals) {
 		if (err) {
-		   	console.log()
+			console.log();
 			process.exit(1)
 		}
 		
