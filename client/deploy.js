@@ -85,10 +85,6 @@ function deploy(token, pkg, location) {
 		form.append('drone', fs.createReadStream(tmp));
 		form.append('token', token);
 		form.append('package', pkg)
-		
-		form.getLength(function(err, len) {
-		    r.setHeader('Content-Length', len);
-		});
 	});
 }
 
