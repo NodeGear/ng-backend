@@ -1,6 +1,7 @@
 express = require('express')
 	, http = require('http')
-	, path = require('path');
+	, path = require('path')
+	, fs = require('fs')
 
 var app = express();
 
@@ -21,8 +22,11 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', function(req, res) {
-  res.send("Hello there!");
+  res.send("<img src='/image.gif'>");
 });
+app.get('/image.gif', function(req, res) {
+	fs.createReadStream(__dirname + '/image.gif').pipe(res)
+})
 
 http.createServer(app).listen(app.get('port'), function(){
 	console.log('Express server listening on port ' + app.get('port'));
