@@ -10,7 +10,7 @@
     "jade": "*",
 	"forever-monitor": "*",
 	"async":"*",
-	"http-proxy":"NodeCloud/node-http-proxy",
+	"http-proxy": "NodeCloud/node-http-proxy",
 	"mongoose": "*",
 	"colors": "*",
 	"socket.io": "*",
