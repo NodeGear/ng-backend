@@ -15,6 +15,7 @@
 	"colors": "*",
 	"socket.io": "*",
 	"fs.extra": "*",
-	"tar.gz": "*"
+	"tar.gz": "*",
+	"usage": "*"
   }
 }
