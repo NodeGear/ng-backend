@@ -16,6 +16,7 @@
 	"socket.io": "*",
 	"fs.extra": "*",
 	"tar.gz": "*",
-	"usage": "*"
+	"usage": "*",
+	"npm": "*"
   }
 }
