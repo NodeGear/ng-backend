@@ -6,17 +6,18 @@
     "start": "node lib/cloud.js"
   },
   "dependencies": {
-    "express": "3.2.4",
-    "jade": "*",
-	"forever-monitor": "*",
-	"async":"*",
-	"http-proxy": "NodeCloud/node-http-proxy",
-	"mongoose": "*",
-	"colors": "*",
-	"socket.io": "*",
-	"fs.extra": "*",
-	"tar.gz": "*",
-	"usage": "*",
-	"npm": "*"
+    "express": "latest",
+    "jade": "latest",
+    "forever-monitor": "latest",
+    "async":"latest",
+    "http-proxy": "https://github.com/nodejitsu/node-http-proxy/archive/caronte.tar.gz",
+    "mongoose": "latest",
+    "colors": "latest",
+    "socket.io": "latest",
+    "fs.extra": "latest",
+    "tar.gz": "latest",
+    "usage": "latest",
+    "npm": "latest",
+	 "dnode": "latest"
   }
 }
