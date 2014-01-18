@@ -4,8 +4,6 @@ express = require('express')
 
 var app = express();
 
-console.log(process.env);
-
 // all environments
 app.set('port', process.env.PORT);
 app.set('views', __dirname + '/views');
