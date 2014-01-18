@@ -4,9 +4,11 @@
 	"start": "test.js",
 	"subdomain": "testapp",
 	"domains": [
+		"localhost",
 		"testapp.matej.me"
 	],
 	"dependencies": {
-	  "express":"*"
+	  "express": "latest",
+	  "socket.io": "latest"
 	}
 }
