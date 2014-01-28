@@ -1,3 +1,6 @@
 #!/bin/bash
 
-git clone /home/nodecloud/repositories/${GL_REPO}.git ${DRONE_LOCATION}
+git clone /home/git/repositories/${2}.git ${1}
+cd $1
+
+/usr/local/bin/npm install
