@@ -24,7 +24,7 @@ if [ -d "$1" ]; then
 	git reset --hard
 	git pull /home/git/repositories/${2}.git master
 	# If that doesn't work
-	[ $? -ne 0 ]; then
+	if [ $? -ne 0 ]; then
 		cd $4
 		# remove the folder
 		rm -rf $1
@@ -33,7 +33,7 @@ if [ -d "$1" ]; then
 		git clone /home/git/repositories/${2}.git ${1}
 		
 		# Unsuccessful git clone
-		[ $? -ne 0 ]; then
+		if [ $? -ne 0 ]; then
 			cd $4
 			
 			# Clean up
@@ -47,7 +47,7 @@ else
 	git clone /home/git/repositories/${2}.git ${1}
 	
 	# Unsuccessful git clone
-	[ $? -ne 0 ]; then
+	if [ $? -ne 0 ]; then
 		cd $4
 		
 		# Clean up
@@ -65,7 +65,7 @@ chmod -R 770 ${4}
 cd $1
 /usr/local/bin/npm install
 # Did not install dependencies correctly
-[ $? -ne 0 ]; then
+if [ $? -ne 0 ]; then
 	echo "Failed Installing Dependencies"
 	exit 3
 fi
