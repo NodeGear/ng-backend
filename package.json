@@ -6,8 +6,6 @@
     "start": "node lib/cloud.js"
   },
   "dependencies": {
-    "express": "latest",
-    "jade": "latest",
     "forever-monitor": "latest",
     "async":"latest",
     "http-proxy": "https://github.com/nodejitsu/node-http-proxy/archive/caronte.tar.gz",
