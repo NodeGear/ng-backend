@@ -11,8 +11,6 @@
     "http-proxy": "https://github.com/nodejitsu/node-http-proxy/archive/caronte.tar.gz",
     "mongoose": "latest",
     "colors": "latest",
-    "socket.io": "latest",
-	 "socket.io-client": "latest",
     "fs.extra": "latest",
     "tar.gz": "latest",
     "usage": "latest",
