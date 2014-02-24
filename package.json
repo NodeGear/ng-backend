@@ -18,6 +18,8 @@
     "usage": "latest",
     "npm": "latest",
 	 "nodemailer": "latest",
-	 "bugsnag": "latest"
+	 "bugsnag": "latest",
+	 "hiredis": "latest",
+	 "redis": "latest"
   }
 }
