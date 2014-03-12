@@ -30,7 +30,7 @@ if [ -d "$1" ]; then
 else
 	echo "Copying template"
 	mkdir -p ${1}
-	cp -r ${4} ${1}
+	rsync -az ${4} ${1}
 fi
 
 # fixing permissions
