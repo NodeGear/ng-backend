@@ -7,17 +7,19 @@
   },
   "dependencies": {
     "forever-monitor": "latest",
-    "async":"latest",
-    "http-proxy": "https://github.com/nodejitsu/node-http-proxy/archive/caronte.tar.gz",
+    "async": "latest",
+    "http-proxy": "latest",
     "mongoose": "latest",
     "colors": "latest",
     "fs.extra": "latest",
     "tar.gz": "latest",
     "usage": "latest",
     "npm": "latest",
-	 "nodemailer": "latest",
-	 "bugsnag": "latest",
-	 "hiredis": "latest",
-	 "redis": "latest"
+    "nodemailer": "latest",
+    "bugsnag": "latest",
+    "hiredis": "latest",
+    "redis": "latest",
+    "ng-models": "git+ssh://git@lab.castawaydev.org:nodecloud/ng-models.git",
+    "should": "latest"
   }
 }
