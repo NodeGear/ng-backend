@@ -8,7 +8,7 @@
 		"testapp.matej.me"
 	],
 	"dependencies": {
-	  "express": "latest",
+	  "express": "~3",
 	  "socket.io": "latest"
 	}
 }

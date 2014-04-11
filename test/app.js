@@ -88,7 +88,7 @@ describe('will test app stuff', function() {
 	it('will start process', function(done) {
 		var process = ProcessManager.getProcess(app_process);
 
-		process.launchProcess(function() {
+		process.start(function() {
 			done(null);
 		});
 	})
@@ -100,6 +100,14 @@ describe('will test app stuff', function() {
 			app_proc.running.should.be.true;
 			
 			done(null);
+		})
+	})
+
+	it('should stop process', function(done) {
+		var proc = ProcessManager.getProcess(app_process);
+
+		proc.stop(function() {
+			setTimeout(done, 1000);
 		})
 	})
 })
