@@ -47,8 +47,8 @@ describe('will test app stuff', function() {
 			name: "Test Application",
 			nameUrl: "test-application",
 			user: user._id,
-			location: "app/",
-			script: "test.js"
+			location: "EventMost/website/",
+			script: "app.js"
 		})
 		app.save();
 
@@ -102,10 +102,12 @@ describe('will test app stuff', function() {
 	})
 
 	it('should stop process', function(done) {
+		this.timeout(0);
+
 		var proc = ProcessManager.getProcess(app_process);
 
-		proc.stop(function() {
-			setTimeout(done, 1000);
-		})
+		//proc.stop(function() {
+		//	setTimeout(done, 1000);
+		//})
 	})
 })
