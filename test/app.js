@@ -1,7 +1,6 @@
 var config = require('../lib/config');
 var backend = require('../lib/backend');
 var ProcessManager;
-var proxy;
 
 var should = require('should'),
 	models = require('ng-models')
@@ -18,7 +17,6 @@ it('should wait for server to be ready', function(done) {
 			done(null);
 
 			ProcessManager = require('../lib/ProcessManager');
-			proxy = backend.proxy;
 
 			return;
 		}
