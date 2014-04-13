@@ -37,8 +37,6 @@ describe('will test app stuff', function() {
 			name: "Matej Kramny",
 			email: "matej@matej.me",
 			email_verified: true,
-			uid: 500,
-			gid: 501,
 			admin: true
 		})
 		user.save();
@@ -47,8 +45,8 @@ describe('will test app stuff', function() {
 			name: "Test Application",
 			nameUrl: "test-application",
 			user: user._id,
-			location: "EventMost/website/",
-			script: "app.js"
+			location: "/Users/matejkramny/ng_bare_test/",
+			script: "test.js"
 		})
 		app.save();
 
@@ -78,16 +76,17 @@ describe('will test app stuff', function() {
 
 	it('will manage process', function(done) {
 		ProcessManager.manageProcess(app_process);
-
+		
 		ProcessManager.get_processes().should.be.instanceOf(Array).and.have.lengthOf(1);
 		done(null);
 	});
 
 	it('will start process', function(done) {
+		this.timeout(0);
 		var process = ProcessManager.getProcess(app_process);
 
 		process.start(function() {
-			done(null);
+			setTimeout(done, 200);
 		});
 	})
 
@@ -106,8 +105,9 @@ describe('will test app stuff', function() {
 
 		var proc = ProcessManager.getProcess(app_process);
 
-		//proc.stop(function() {
-		//	setTimeout(done, 1000);
-		//})
+		var ret = proc.stop();
+		should(ret).be.true;
+
+		setTimeout(done, 1000);
 	})
 })
