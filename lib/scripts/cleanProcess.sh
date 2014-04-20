@@ -8,14 +8,9 @@
 # 1 - Owner of directory not equal to the user id
 # 2 - Folder does not exist..
 
+echo $2
 if [ ! -d "$2" ]; then
 	exit 2
-fi
-
-owner=$(ls -ld $2 | awk '{print $3}')
-
-if [ "$1" != "$owner" ]; then
-	exit 1
 fi
 
 rm -rf $2

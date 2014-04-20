@@ -9,7 +9,7 @@ id -u $1 > /dev/null
 
 if [ $? -ne 0 ]
 then
-	useradd -d /home/$2 -m $1
+	useradd -d /home/$1 -m $1
 
 	if [ $? -ne 0 ]
 	then

@@ -13,22 +13,14 @@
 # 4 - Could not install
 # 5 - Other error
 
-source ~/.bashrc
+homedir=$( getent passwd "$1" | cut -d: -f6 )
 
-#PATH=$PATH:/usr/local/bin
-
-git clone "$3" $2
-if [ $? -ne 0 ]; then
-	exit 2
-fi
-
+cd $homedir
 cd $2
 
-git checkout "$4"
-if [ $? -ne 0 ]; then
-	exit 3
-fi
-
 npm install
+if [ $? -ne 0 ]; then
+	exit 4
+fi
 
 exit 0
