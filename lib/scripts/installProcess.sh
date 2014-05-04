@@ -30,5 +30,8 @@ if [ $? -ne 0 ]; then
 fi
 
 npm install
+if [ $? -ne 0 ]; then
+	exit 4
+fi
 
 exit 0
