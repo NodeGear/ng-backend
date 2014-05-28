@@ -29,7 +29,7 @@ if [ $? -ne 0 ]; then
 	exit 3
 fi
 
-npm install
+npm --no-color install
 if [ $? -ne 0 ]; then
 	exit 4
 fi
