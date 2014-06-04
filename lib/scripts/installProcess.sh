@@ -4,6 +4,7 @@
 # $2 Process ID
 # $3 Git Location
 # $4 Git Branch
+# $5 NPM Options
 
 # Exit codes:
 # 0 - OK
@@ -29,7 +30,7 @@ if [ $? -ne 0 ]; then
 	exit 3
 fi
 
-npm --no-color install
+npm --no-color ${5} install
 if [ $? -ne 0 ]; then
 	exit 4
 fi
