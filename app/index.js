@@ -1,10 +1,10 @@
+console.log(process.env);
+
 express = require('express')
 	, http = require('http')
 	, path = require('path');
 
 var app = express();
-
-console.log(process.env);
 
 // all environments
 app.set('port', process.env.PORT);
