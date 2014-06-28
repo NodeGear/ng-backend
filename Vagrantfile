@@ -9,6 +9,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   for i in 9000..9100
     config.vm.network :forwarded_port, guest: i, host: i
   end
+  config.vm.network :forwarded_port, guest: 3306, host: 3306
   # config.vm.network "private_network", ip: "192.168.33.10"
   # config.vm.network "public_network"
 
