@@ -30,9 +30,4 @@ if [ $? -ne 0 ]; then
 	exit 3
 fi
 
-npm --no-color ${5} install
-if [ $? -ne 0 ]; then
-	exit 4
-fi
-
 exit 0
