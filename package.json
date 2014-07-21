@@ -6,12 +6,9 @@
     "start": "node lib/cloud.js"
   },
   "dependencies": {
-    "forever-monitor": "latest",
     "async": "latest",
-    "http-proxy": "latest",
     "mongoose": "latest",
     "colors": "latest",
-    "fs.extra": "latest",
     "nodemailer": "latest",
     "bugsnag": "latest",
     "hiredis": "latest",
