@@ -14,7 +14,7 @@
     "mongoose": "latest",
     "ncp": "^0.6.0",
     "ng-models": "git+ssh://git@lab.castawaylabs.com/nodegear/ng-models.git",
-    "nodemailer": "latest",
+    "nodemailer": "~0.7",
     "redis": "latest",
     "should": "latest"
   }
