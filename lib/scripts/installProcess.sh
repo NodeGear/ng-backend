@@ -18,7 +18,10 @@
 
 #PATH=$PATH:/usr/local/bin
 
-git clone "$3" $2
+printf "#\041/bin/bash\nssh -i /home/${1}/.ssh/id_rsa \$1 \$2\n" > /home/$1/ssh_wrapper.sh
+chmod +x /home/$1/ssh_wrapper.sh
+
+GIT_SSH=/home/$1/ssh_wrapper.sh git clone "$3" $2
 if [ $? -ne 0 ]; then
 	exit 2
 fi
