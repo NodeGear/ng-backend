@@ -14,7 +14,7 @@
 # 4 - Could not install
 # 5 - Other error
 
-source ~/.bashrc
+#source ~/.bashrc
 
 #PATH=$PATH:/usr/local/bin
 
