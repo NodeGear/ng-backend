@@ -17,10 +17,13 @@ fi
 
 echo "Three is $3, $4"
 if [ $3 -eq 1 ]; then
-	echo "$3 == 1!!"
 	cd $2
+	pwd
 	git add --all
 	git diff --binary --cached HEAD > $4
+
+	echo "ls -l $4"
+	ls -l $4
 fi
 
 rm -rf $2
