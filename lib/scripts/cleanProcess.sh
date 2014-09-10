@@ -15,7 +15,7 @@ if [ ! -d "$2" ]; then
 	exit 2
 fi
 
-if [ $depth -eq 1 ]; then
+if [ $3 -eq 1 ]; then
 	cd $2
 	git add --all
 	git diff --binary --cached HEAD > $4
