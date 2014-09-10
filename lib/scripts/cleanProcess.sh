@@ -15,7 +15,9 @@ if [ ! -d "$2" ]; then
 	exit 2
 fi
 
+echo "Three is $3, $4"
 if [ $3 -eq 1 ]; then
+	echo "$3 == 1!!"
 	cd $2
 	git add --all
 	git diff --binary --cached HEAD > $4
