@@ -37,6 +37,7 @@ echo "5 and 6, $5 and $6"
 if [ $5 -eq 1 ]; then
 	echo "yayyy"
 	cat $6
+	ls -l $6
 	git apply $6
 	rm -f $6
 fi
