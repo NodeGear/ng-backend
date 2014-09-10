@@ -16,6 +16,7 @@
     "ng-models": "git+ssh://git@lab.castawaylabs.com/nodegear/ng-models.git",
     "nodemailer": "~0.7",
     "redis": "latest",
-    "should": "latest"
+    "should": "latest",
+    "request": "latest"
   }
 }
