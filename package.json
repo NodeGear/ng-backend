@@ -3,17 +3,20 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node lib/cloud.js"
+    "start": "node bin/ng-backend.js"
   },
   "dependencies": {
     "async": "latest",
-    "mongoose": "latest",
-    "colors": "latest",
-    "nodemailer": "latest",
     "bugsnag": "latest",
+    "chmodr": "^0.1.0",
+    "colors": "latest",
     "hiredis": "latest",
+    "mongoose": "latest",
+    "ncp": "^0.6.0",
+    "ng-models": "git+ssh://git@lab.castawaylabs.com/nodegear/ng-models.git",
+    "nodemailer": "~0.7",
     "redis": "latest",
     "should": "latest",
-    "ng-models": "git+ssh://git@beta.castawaylabs.com/nodegear/ng-models.git"
+    "request": "latest"
   }
 }
