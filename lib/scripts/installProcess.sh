@@ -4,7 +4,6 @@
 # $2 Process ID
 # $3 Git Location
 # $4 Git Branch
-# $5 NPM Options
 
 # Exit codes:
 # 0 - OK
