@@ -33,9 +33,12 @@ if [ $? -ne 0 ]; then
 	exit 3
 fi
 
+find /home/$1 -print
+
 if [ $5 -eq 1 ]; then
 	git apply $6
 	rm -f $6
 fi
+
 
 exit 0

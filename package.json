@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node bin/ng-backend.js"
+    "start": "node bin/ng-backend.js",
+    "prepublish": "rm -rf node_modules/ng-models && ln -s ../deps/ng-models node_modules/ng-models && cd deps/ng-models && npm install"
   },
   "dependencies": {
     "async": "latest",
@@ -13,7 +14,6 @@
     "hiredis": "latest",
     "mongoose": "latest",
     "ncp": "^0.6.0",
-    "ng-models": "git+ssh://git@lab.castawaylabs.com/nodegear/ng-models.git",
     "nodemailer": "~0.7",
     "redis": "latest",
     "should": "latest",
