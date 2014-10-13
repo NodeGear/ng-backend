@@ -15,6 +15,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provider "virtualbox" do |v|
     v.memory = 4086
     v.cpus = 2
+		v.name = "ng-Backend"
   end
 
   config.vm.provision :shell do |s|
