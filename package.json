@@ -12,11 +12,13 @@
     "chmodr": "^0.1.0",
     "colors": "latest",
     "hiredis": "latest",
+    "logtrail": "0.0.2",
     "mongoose": "latest",
     "ncp": "^0.6.0",
     "nodemailer": "~0.7",
     "redis": "latest",
+    "request": "latest",
     "should": "latest",
-    "request": "latest"
+    "lynx": "latest"
   }
 }
